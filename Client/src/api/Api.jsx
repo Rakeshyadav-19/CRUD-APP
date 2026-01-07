@@ -7,22 +7,11 @@ export async function apiFetch(endpoint, options = {}) {
     },
     ...options,
   };
-  //   // If body is FormData, remove Content-Type so browser sets it correctly
-  //   if (opts.body instanceof FormData) {
-  //     delete opts.headers["Content-Type"];
-  //     delete opts.headers["content-type"];
-  //   }
   const res = await fetch(`${API_BASE_URL}${endpoint}`, opts);
 
   if (!res.ok) {
-    // Try to parse error response as JSON
     let errorData;
-    try {
-      errorData = await res.json();
-    } catch {
-      // If not JSON, use text
-      errorData = { error: await res.text() };
-    }
+    errorData = await res.json();
 
     // Create error object with response data
     const error = new Error(
