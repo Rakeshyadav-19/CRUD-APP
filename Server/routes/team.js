@@ -10,7 +10,7 @@ import {
   getUserById,
   deleteUser,
   updateUser,
-} from "../controllers/Users.js";
+} from "../controllers/users.js";
 
 const storage = multer.memoryStorage();
 

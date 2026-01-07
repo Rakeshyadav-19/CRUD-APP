@@ -48,8 +48,24 @@ export const createUser = async (req, res) => {
 export const getAllUsers = async (req, res) => {
   try {
     const { teamId } = req.params;
-    const users = await User.find({ team_Id: teamId });
-    res.status(200).json(users);
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    const [users, totalCount] = await Promise.all([
+      User.find({ team_Id: teamId }).skip(skip).limit(limit),
+      User.countDocuments({ team_Id: teamId }),
+    ]);
+
+    res.status(200).json({
+      users,
+      pagination: {
+        currentPage: page,
+        totalPages: Math.ceil(totalCount / limit),
+        totalCount,
+        limit,
+      },
+    });
   } catch (err) {
     res
       .status(500)

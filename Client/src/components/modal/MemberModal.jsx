@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import { apiFetch } from "../../api/api.jsx";
+import { apiFetch } from "../../api/Api.jsx";
 
 export const AddMemberModal = ({ isOpen, onClose, teamId, onSuccess }) => {
   const [formData, setFormData] = useState({

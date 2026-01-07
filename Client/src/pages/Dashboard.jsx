@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { apiFetch } from "../api/api.jsx";
-import Table from "../components/table.jsx";
+import { apiFetch } from "../api/Api.jsx";
+import Table from "../components/Table.jsx";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -38,22 +38,22 @@ const Dashboard = () => {
 
       {/* Top Stats Boxes */}
       <div className="flex gap-5 mb-8 flex-wrap">
-        <div className="flex-1 min-w-[200px] p-5 bg-green-500 text-white rounded-lg text-center">
+        <div className="flex-1 min-w-50 p-5 bg-green-500 text-white rounded-lg text-center">
           <h3 className="text-lg font-semibold">Total Employees</h3>
           <p className="text-5xl my-2">{dashboardData.employeeCount}</p>
         </div>
 
-        <div className="flex-1 min-w-[200px] p-5 bg-blue-500 text-white rounded-lg text-center">
+        <div className="flex-1 min-w-50 p-5 bg-blue-500 text-white rounded-lg text-center">
           <h3 className="text-lg font-semibold">Male</h3>
           <p className="text-5xl my-2">{dashboardData.maleCount}</p>
         </div>
 
-        <div className="flex-1 min-w-[200px] p-5 bg-pink-600 text-white rounded-lg text-center">
+        <div className="flex-1 min-w-50 p-5 bg-pink-600 text-white rounded-lg text-center">
           <h3 className="text-lg font-semibold">Female</h3>
           <p className="text-5xl my-2">{dashboardData.femaleCount}</p>
         </div>
 
-        <div className="flex-1 min-w-[200px] p-5 bg-orange-500 text-white rounded-lg text-center">
+        <div className="flex-1 min-w-50 p-5 bg-orange-500 text-white rounded-lg text-center">
           <h3 className="text-lg font-semibold">Other</h3>
           <p className="text-5xl my-2">{dashboardData.otherCount}</p>
         </div>

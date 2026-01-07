@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { apiFetch } from "../../api/api.jsx";
+import { apiFetch } from "../../api/Api.jsx";
 
 export const SendMailModal = ({ isOpen, onClose, recipient }) => {
   const [formData, setFormData] = useState({
@@ -19,6 +19,7 @@ export const SendMailModal = ({ isOpen, onClose, recipient }) => {
     e.preventDefault();
     setError("");
     setSuccess("");
+    setFormData({ subject: "", message: "" });
 
     if (!formData.subject || !formData.message) {
       setError("All fields are required");
