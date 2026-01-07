@@ -64,7 +64,7 @@ const UserProfile = () => {
       <div className="bg-white rounded-lg shadow-lg p-8">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Profile Image */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             {getProfileImage() ? (
               <img
                 src={getProfileImage()}
