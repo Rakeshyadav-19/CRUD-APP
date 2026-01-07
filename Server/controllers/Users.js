@@ -4,7 +4,7 @@ import Team from "../models/teamModel.js";
 // Get all teams
 export const getAllTeams = async (req, res) => {
   try {
-    const teams = await Team.distinct("teamName");
+    const teams = await Team.find({}, { teamName: 1, _id: 1 });
     res.status(200).json(teams);
   } catch (err) {
     res
@@ -31,7 +31,6 @@ export const createUser = async (req, res) => {
       phone,
       gender,
       team_Id,
-      role,
       profile_pic: req.file ? req.file.buffer : undefined,
       contentType: req.file ? req.file.mimetype : undefined,
     });
@@ -77,7 +76,7 @@ export const getUserById = async (req, res) => {
 // Delete a user
 export const deleteUser = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
     const getUser = await User.findById(id);
     if (!getUser) {
       return res.status(404).json({ error: "User not found" });
@@ -94,8 +93,8 @@ export const deleteUser = async (req, res) => {
 // Update a user
 export const updateUser = async (req, res) => {
   try {
-    // const { id } = req.params;
-    const { id, name, email, phone, gender, team_Id } = req.body;
+    const { id } = req.params;
+    const { name, email, phone, gender, team_Id } = req.body;
     const getUser = await User.findById(id);
     if (!getUser) {
       return res.status(404).json({ error: "User not found" });

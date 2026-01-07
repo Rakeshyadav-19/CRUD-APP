@@ -2,9 +2,11 @@ import dotenv from "dotenv";
 dotenv.config();
 import client from "./config/db.js";
 import express from "express";
+import cors from "cors";
 
 client();
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 // Routes
