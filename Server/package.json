@@ -1,0 +1,23 @@
+{
+  "name": "crud_server",
+  "version": "1.0.0",
+  "description": "Crud operations backend",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rakesh Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.1.2",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
